@@ -1,0 +1,16 @@
+name: Run Aseprite 
+description: Executes Aseprite on Ubuntu
+
+inputs:
+  args:
+    description: CLI arguments that are passed to Aseprite
+    required: true
+
+outputs:
+  stdout:
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.arguments }}

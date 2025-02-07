@@ -1,6 +1,15 @@
 #!/bin/bash
-set -euo pipefail
 
 cd /github/workspace
 
-echo "stdout=$(aseprite --batch $1)" >> $GITHUB_OUTPUT
+STDOUT="$(aseprite --batch $1 2> error.txt)"
+
+echo "stdout"
+echo "$STDOUT"
+
+if [ $? -ne 0 ]; then
+  echo "ERROR: $(cat error.txt)"
+  exit 1
+fi
+
+echo "stdout=$STDOUT" >> $GITHUB_OUTPUT

@@ -1,0 +1,31 @@
+name: Run Sample Script
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-sample-script:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Copy script
+        run: |
+          cp sample-script.lua ${{ github.workspace }}/sample-script.lua
+
+      - name: Run sample-script.lua
+        uses: ./
+        id: run-sample-script
+        with:
+          args: '--script sample-script.lua'
+
+      - name: Print result
+        run: |
+          echo "${{ steps.run-sample-script.outputs.stdout }}"

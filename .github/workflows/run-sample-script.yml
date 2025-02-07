@@ -16,10 +16,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Copy script
-        run: |
-          cp sample-script.lua ${{ github.workspace }}/sample-script.lua
-
       - name: Run sample-script.lua
         uses: ./
         id: run-sample-script

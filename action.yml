@@ -14,4 +14,4 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.arguments }}
+    - ${{ inputs.args }}

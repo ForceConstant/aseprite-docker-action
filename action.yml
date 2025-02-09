@@ -8,7 +8,11 @@ inputs:
 
 outputs:
   stdout:
-    description: Aseprite stdout
+    description: Standard output
+  stderr:
+    description: Error output
+  exit-code:
+    description: Exit code of Aseprite
 
 runs:
   using: docker

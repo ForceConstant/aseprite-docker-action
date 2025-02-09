@@ -23,4 +23,6 @@ jobs:
 
       - name: Print result
         run: |
-          echo "${{ steps.run-sample-script.outputs.stdout }}"
+          echo "stdout: ${{ steps.run-sample-script.outputs.stdout }}"
+          echo "stdin: ${{ steps.run-sample-script.outputs.stderr }}"
+          echo "exit code: ${{ steps.run-sample-script.outputs.exit-code }}"

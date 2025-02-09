@@ -4,14 +4,18 @@ cd /github/workspace
 
 echo "run: aseprite --batch $1"
 STDOUT="$(aseprite --batch $1 2> error.txt)"
+STDERR="$(cat error.txt)"
+EXIT_CODE=$?
 
 echo "output:"
 echo "$STDOUT"
 
-if [ $? -ne 0 ]; then
+if [ "$EXIT_CODE" -ne "0" ]; then
     echo "error:"
-    echo "$(cat error.txt)"
+    echo "$STDOUT"
     exit 1
 fi
 
 echo "stdout=$STDOUT" >> $GITHUB_OUTPUT
+echo "stderr=$STDOUT" >> $GITHUB_OUTPUT
+echo "exit-code=$EXIT_CODE" >> $GITHUB_OUTPUT

@@ -1,1 +1,1 @@
-print("Hello Aseprite " .. app.vresion)
+print("Hello Aseprite " .. app.version)

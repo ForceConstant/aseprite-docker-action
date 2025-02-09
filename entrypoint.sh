@@ -13,10 +13,10 @@ echo "$STDOUT"
 
 if [ "$EXIT_CODE" -ne "0" ]; then
     echo "error:"
-    echo "$STDOUT"
+    echo "$STDERR"
     exit 1
 fi
 
 echo "stdout=$STDOUT" >> $GITHUB_OUTPUT
-echo "stderr=$STDOUT" >> $GITHUB_OUTPUT
+echo "stderr=$STDERR" >> $GITHUB_OUTPUT
 echo "exit-code=$EXIT_CODE" >> $GITHUB_OUTPUT

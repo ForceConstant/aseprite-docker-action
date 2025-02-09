@@ -7,10 +7,6 @@ inputs:
     required: true
 
 outputs:
-  stdout:
-    description: Standard output
-  stderr:
-    description: Error output
   exit-code:
     description: Exit code of Aseprite
 

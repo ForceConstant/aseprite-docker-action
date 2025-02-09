@@ -3,7 +3,8 @@
 cd /github/workspace
 
 echo "run: aseprite --batch $1"
-STDOUT="$(aseprite --batch $1 2> error.txt)"
+aseprite --batch $1 1> stdout.txt 2> error.txt
+STDOUT="$(cat stdout.txt)"
 STDERR="$(cat error.txt)"
 EXIT_CODE=$?
 

@@ -15,7 +15,7 @@ RUN wget https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia
 RUN unzip Skia-Linux-Release-x64-libstdc++.zip -d /root/skia
 
 # build aseprite
-RUN git clone --recursive --depth 1 -b v1.3.12 --single-branch https://github.com/aseprite/aseprite.git aseprite
+RUN git clone --recursive --depth 1 --single-branch https://github.com/aseprite/aseprite.git aseprite
 WORKDIR /root/aseprite/build
 RUN cmake -G Ninja \
     -DLAF_BACKEND=skia \
